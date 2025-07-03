@@ -1,25 +1,25 @@
 services:
-  mysql:
-    image: mysql
-    environment:
-     MYSQL_ROOT_PASSWORD: mdp
-     MYSQL_DATABASE: db
+    mysql:
+        image: mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: mdp
+            MYSQL_DATABASE: db
 
-  phpmyadmin:
-    image: phpmyadmin
-    ports:
-      - 8001:80
-    environment:
-      - PMA_ARBITRARY=1
+    phpmyadmin:
+        image: phpmyadmin
+        ports:
+            - 8001:80
+        environment:
+            - PMA_ARBITRARY=1
 
-  wordpress:
-    image: wordpress
-    ports:
-      - 8002:80
-    environment:
-      WORDPRESS_DB_HOST: mysql
-      WORDPRESS_DB_USER: root
-      WORDPRESS_DB_PASSWORD: mdp
-      WORDPRESS_DB_NAME: db_wp
-    volumes:
-      - ./wordpress:/var/www/html
+    wordpress:
+        image: wordpress
+        ports:
+            - 8002:80
+        environment:
+            WORDPRESS_DB_HOST: mysql
+            WORDPRESS_DB_USER: root
+            WORDPRESS_DB_PASSWORD: mdp
+            WORDPRESS_DB_NAME: db_wp
+        volumes:
+            - ./wordpress:/var/www/html
